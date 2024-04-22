@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>genarate</title>
+    <link rel="stylesheet" href="..//BOOSTRAP/bootstrap-5.2.2-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    
+    <input class="form-control w-50" type="number" name="" id="num">
+    <button onclick="gens()" class="btn btn-danger" id="gen">genarate</button>
+    <h1 id="multi" style="width: 7px;"></h1>
+</body>
+
+</html>
+
+<script>
+
+let data = document.getElementById('num')
+let output = document.getElementById('multi')
+function gens(){
+    let result = data.value
+    for (let number = 1; number<= 12; number++){
+        output.innerHTML += result + '*' + number + '=' + result * number + ' ';
+    }
+}
+console.log('hello world')
+</script>

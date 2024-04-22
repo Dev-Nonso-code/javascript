@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://127.0.0.1:5500/hey.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./Document_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <form action="http://127.0.0.1:5500/hey.html">
+            <h1 class="text-primary">Login</h1>
+            <div class="form-group">
+                <label for="">Username</label>
+                <input id="username" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input id="password" class="form-control" type="password">
+            </div>
+            <div>
+                <button onclick="signup(event)" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+        <div>
+            <span>Don't have an account?</span>
+            <button onclick="goSign()" class="btn btn-success">signup</button>
+        </div>
+    </main>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+
+<script>
+    let username = document.getElementById("username")
+    let email = document.getElementById("email")
+    let password = document.getElementById("password")
+
+    function signup(ev){
+        ev.preventDefault()
+        let user = {
+            username: username.value,
+            password: password.value,
+        }
+        localStorage.setItem("loggedUser", JSON.stringify(user))
+        window.location.href = "index.html"
+    }
+    function goSign(){
+        window.location.href = "new.html"
+    }
+</script></body></html>

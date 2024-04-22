@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="..//BOOSTRAP/bootstrap-5.2.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <h1 id="showing">0</h1>
+    <button onclick="increasenum()" class="btn btn-warning mt-3 ml-3">increase</button>
+    <button onclick="decreasenum()" class="btn btn-info mt-3 ml-3">decrease</button>
+</body>
+</html>
+
+<script>
+
+    var the_figure = 0 && 8
+   // let showings = document.getElementById("showings")
+    let showing = document.getElementById("showing")
+    function increasenum(){
+        console.log(the_figure <= 8);
+        if (the_figure < 8 || the_figure == 0){
+            the_figure ++
+            showing.innerHTML = the_figure
+
+        }else{
+            alert("out of stock")
+        }
+    }
+
+    function decreasenum(){
+       // alert("opps")
+        console.log(the_figure == 8);
+        if (the_figure >= 1){
+            the_figure --
+            showing.innerHTML = the_figure
+        }else{
+            alert("cannot be less than 0")
+        }
+        return;
+    }
+
+    let today = new Date()
+
+    console.log(today.getDate());
+    console.log(today.getMonth());
+    console.log(today.getFullYear());
+    console.log(today.getMinutes());
+    console.log(today.getTime());
+    console.log(today.setTime());
+    console.log(today.toLocaleTimeString());
+
+    setTimeout(() => {
+        console.log("This is showing after 5sec");
+    }, 5000);
+    let figure = 7
+    let saved = setInterval(() => {
+        figure--
+        showing.innerHTML = figure
+        console.log("every 2sec");
+        if(figure == 0){
+            clearInterval(saved)
+        }
+    }, 2000);
+</script>

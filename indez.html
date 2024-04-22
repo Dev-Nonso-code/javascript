@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./icofont/icofont.min.css">
+</head>
+<body>
+    <main>
+        <div id="phframe" class="phone_flame">
+            <div id="iccon" class="icon">
+                <div>
+                    <button onclick="startcam()">
+                        <i class="icofont-camera"></i>
+                    </button>
+                </div>
+                <div>
+                    <button>
+                        <i class="icofont-photobucket"></i>
+                    </button>
+                </div>
+                <div id="cam-screen">
+                    <video id="video" autoplay src=""></video>
+                    <canvas id="canvas"></canvas>
+                    <button>
+                        <i class="icofont-ui-add"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <img src="./picz/wallpaper.png" style="width: 9em; height: 13em;" alt="">
+    </main>
+</body>
+</html>
+
+<script>
+    let cam_screen = document.getElementById("cam-screen");
+    let phframe = document.getElementById("phframe");
+    let iccon = document.getElementById("iccon");
+    let video = document.getElementById("video");
+    let canvas = document.getElementById("canvas");
+
+    cam_screen.style.display = "none"
+
+    async function startcam(){
+        iccon.style.display = "none"
+        cam_screen.style.display = "block"
+        let thepix = await navigator.mediaDevices.getUserMedia({video})
+        video.srcobject = thepix
+    }
+
+    function takepix(){
+        canvas.getcontext("2d").drawimage(video, 0,0, canvas.width,)
+        let img_link = canvas.toDateURL('picz/mmt.jpg');
+        console.log(img_link);
+    }
+</script>
